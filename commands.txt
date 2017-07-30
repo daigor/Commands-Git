@@ -1,0 +1,144 @@
+//Diego Alejandro Rodriguez Ayala
+
+//Ayuda
+
+* git help <command>
+
+//Clonar un proyecto
+
+* git clone [URL]
+
+//Configura nombre y email del usuario
+
+* git config --global user.name "el nombre"
+* git config --global user.email "el correo"
+
+//Configura colores de consola
+
+* git config --global color.ui true
+
+//Mirar todas las configuraciones realizadas
+
+* git config --global -l
+
+//Inciar un proyecto de git
+
+* git init
+
+//Ver estado del proyecto
+
+* git status
+
+//Agregar archivos listo para crear un commit
+
+* git add <file>
+* git add -A //Agregar todo
+* git add . //Agregar todo
+
+//Guardar cambios hechos
+
+* git commit -m "message"
+
+//Modificar o arreglar commit
+
+* git commit --amend -m "message" //Cambio de mensaje del commit
+
+//Listar commits y informacion
+
+* git log
+* git log > file.txt //Genera un txt con la lista de commits
+
+//Viajar a traves de los commits y ramas
+
+* git checkout <commit SHA>
+* git checkout master //Volver al ultimo commit realizado
+
+//Viajar a traves de los commits pero eliminandos (Dangerous)
+
+* git reset --soft <commit SHA> //Simple - no borra el Working Area
+* git reset --mixed <commit SHA> //No borra el Staging Area ni el Working Area (no se usa mucho)
+* git reset --hard <commit SHA> //Completo - borra todo
+
+//Copia un commit de una rama a otra
+
+* git cherry-pick <commit SHA> //Dentro de la rama que va a absorber
+
+//Muestra todas las ramas
+
+* git branch
+
+//Crear una rama
+
+* git branch <new name>
+* git checkout -b <new name> //Crea la rama y nos movemos a ella
+
+//Eliminar una rama
+
+* git branch -d <branch name>
+
+//Hacer fusiones entre ramas
+
+* Primero hay que estar ubicado en la rama que va a absorber
+* git merge <branch name>
+
+//Vincular repositorio local al remoto (GitHub)
+
+* git remote add origin [HTTPS/SSH] //origin es estandar
+* git remote -v //Ver repositorio al cual esta conectado
+* git remote remove origin //Eliminar vinculacion con origin
+
+//Mandar cambios a GitHub
+
+* git push origin master //master es la rama que vamos a subir
+* git push origin master -f //Forzar subida
+
+//Etiquetas - sirve para marcar algun punto especifico en el proyecto (version)
+
+* git tag -a v1.0 -m "message" //Tag anotada
+* git tag v1.0 //Tag ligera, menos info
+* git show v1.0 //Mostrar informacion sobre etiqueta
+* git tag -l 'v1.0.*' //Lista tags con ese patron
+
+//Subir tag a GitHub
+
+* git push origin <tag name>
+* git push origin --tags //Sube todos los tags
+
+//Ver ramas ocultas
+
+* git branch -a
+
+//Combinar repositorio local con rama oculta
+
+* git fetch origin
+
+//Workflows
+
+* git merge origin/master //Tras hacer <<fetch origin>> fusionamos con la rama master
+
+//Traer todo el proyecto
+
+* git pull origin <branch name> //Combinacion de git fetch y git merge
+
+//Fork - actualiza desde el repositorio de la organizacion
+
+* git fetch upstream //upstream puede cambiar de nombre
+
+//Sitio web personal GitHub.io
+
+* git branch gh-pages //Rama para pagina personal de GitHub
+
+//Deployment
+
+* ssh-keygen //Genera una llave para conectar a un servidor
+* cat home/../.ssh/id_rsa.pub //Copiar llave y agregar una SSH Key en GitHub
+
+//Ignorar archivos
+
+* touch .gitignore //Lista de archivos para evitar en el repositorio remoto
+
+//Hooks
+
+* cd ../.git/hooks/
+* touch post-commit //Script .sh que se ejecuta despues de un commit
+* chmod +x <file> //Dar permisos de ejecucion
